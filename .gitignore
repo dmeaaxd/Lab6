@@ -5,3 +5,6 @@
 
 /Lab6ServerClient.iml
 /.gitignore
+/Client.iml
+/Common.iml
+/Server.iml
