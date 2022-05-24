@@ -1,0 +1,7 @@
+/.idea/
+/Client/target/
+/Server/target/
+/Common/target/
+
+/Lab6ServerClient.iml
+/.gitignore
