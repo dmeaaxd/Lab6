@@ -22,7 +22,6 @@ public class Result {
         if (message == null) {
             if (command) {
                 message = new ArrayList<>();
-                message.add(ColorClass.red + "Команда уже выполнилась" + ColorClass.reset);
             } else {
                 message = new ArrayList<>();
                 message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
@@ -37,8 +36,8 @@ public class Result {
         if (message == null) {
             if (command) {
                 message = new ArrayList<>();
-                message.add(ColorClass.red + "Команда уже выполнилась" + ColorClass.reset);
-            } else {
+            }
+            else {
                 message = new ArrayList<>();
                 message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
             }
