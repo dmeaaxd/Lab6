@@ -48,10 +48,6 @@ public class ConnectWithServer {
 
         try {
             datagramChannel.send(buf, host2);
-            if(!datagramChannel.isConnected()){
-                System.out.println(ColorClass.red + "Сервер недоступен" + ColorClass.reset);
-                return null;
-            }
         }catch (SocketTimeoutException e){
             System.out.println(ColorClass.red + "Сервер недоступен" + ColorClass.reset);
         }
@@ -62,6 +58,7 @@ public class ConnectWithServer {
         buf.clear();
         buf = ByteBuffer.allocate(8192);
         host2 = datagramChannel.receive(buf);
+        //todo Проверка на недоступность сервера...
         byte[] byteMessage = buf.array();
         DataServer obj;
         try {

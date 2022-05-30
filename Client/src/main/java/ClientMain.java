@@ -36,6 +36,7 @@ public class ClientMain {
                 }
             }
             input = input.trim();
+            if(input.isEmpty())continue;
             command = input.split(" ")[0];
             Result result;
             try {

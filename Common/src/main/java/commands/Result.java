@@ -13,6 +13,7 @@ public class Result {
     private boolean command;
     @Getter
     private HashSet<CommandData> hashSet;
+
     public Result(ArrayList<String> message, boolean command) {
         this.message = message;
         this.command = command;
@@ -27,20 +28,17 @@ public class Result {
                 message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
             }
         }
-        this.command=command;
+        this.command = command;
     }
-    public Result(HashSet<CommandData> hashSet, boolean command){
-        this.message = message;
+
+    public Result(HashSet<CommandData> hashSet, boolean command) {
         this.hashSet = hashSet;
         this.command = command;
-        if (message == null) {
-            if (command) {
-                message = new ArrayList<>();
-            }
-            else {
-                message = new ArrayList<>();
-                message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
-            }
+        if (command) {
+            message = new ArrayList<>();
+        } else {
+            message = new ArrayList<>();
+            message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
         }
     }
 }

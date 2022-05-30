@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.io.Serializable;
 
-public class CommandData {
+public class CommandData implements Serializable {
     @Getter
     private final String name;
     @Getter
