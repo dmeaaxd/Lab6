@@ -2,7 +2,8 @@ package structure;
 
 import lombok.Getter;
 import lombok.NonNull;
-
+import lombok.RequiredArgsConstructor;
+@RequiredArgsConstructor
 public class Coordinates {
     @NonNull
     @Getter

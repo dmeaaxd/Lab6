@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @EqualsAndHashCode(of = {"id" , "name"})
-public class HumanBeing {
+public class HumanBeing implements java.lang.Comparable<HumanBeing> {
     public HumanBeing(Long id,String name, Coordinates coordinates, boolean realHero,
                       boolean hasToothpick, Long impactSpeed, WeaponType weaponType, Mood mood, Car car){
         this.id = id;
@@ -46,7 +46,6 @@ public class HumanBeing {
     private Mood mood;
     private Car car;
 
-
     @Override
     public String toString() {
         return ColorClass.blue + "HumanBeing{" +
@@ -61,5 +60,26 @@ public class HumanBeing {
                 ", mood=" + mood +
                 ", car=" + car +
                 "}" + ColorClass.reset;
+    }
+
+    public String csvToString() {
+        return id +
+                "," + name + "," +
+                + coordinates.getX() +
+                ","+ coordinates.getY() +"," + realHero +
+                "," + hasToothpick +
+                "," + impactSpeed +
+                "," + weaponType +
+                "," + mood +
+                "," + car.getCool();
+    }
+    @Override
+    public int compareTo(HumanBeing o) {
+        if (this == o)
+            return 0;
+        if (o == null || getClass() != o.getClass())
+            return -1;
+
+        return this.name.compareTo(o.name);
     }
 }

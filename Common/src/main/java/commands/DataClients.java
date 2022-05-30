@@ -1,6 +1,7 @@
 package commands;
 
 import lombok.Getter;
+import сoloringText.ColorClass;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,9 +28,9 @@ public class DataClients implements Serializable {
             serializedObj = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
         } catch (NullPointerException e) {
-            System.out.println("Epic fail - null.");
+            System.out.println(ColorClass.red + "Ошибка! NullPointerException" + ColorClass.reset);
         } catch (IOException e) {
-            System.out.println("Failed to convert client message into bytes.");
+            System.out.println(ColorClass.red + "Не удалось перевести сообщение сервера в байты" + ColorClass.reset);
         }
         return serializedObj;
     }

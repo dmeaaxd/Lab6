@@ -2,6 +2,8 @@ package commands;
 
 import lombok.Getter;
 
+import java.io.Serializable;
+
 public class CommandData {
     @Getter
     private final String name;
