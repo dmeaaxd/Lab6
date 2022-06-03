@@ -18,7 +18,6 @@ public class RemoveById extends CommandsToCollection {
     public ServerResult function(String... arguments) {
         Long id = Long.parseLong(arguments[0]);
 
-        ArrayList<HumanBeing> clone = new ArrayList<>();
         List<HumanBeing> list = ArrayListCollection.getEntitiesCollection().stream().filter(x->x.getId()==id).collect(Collectors.toCollection(ArrayList::new));
         ArrayListCollection.getEntitiesCollection().removeAll(list);
         return new ServerResult(true);

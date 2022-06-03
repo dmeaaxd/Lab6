@@ -64,9 +64,10 @@ public class HumanBeing implements java.lang.Comparable<HumanBeing> {
 
     public String csvToString() {
         return id +
-                "," + name + "," +
-                + coordinates.getX() +
-                ","+ coordinates.getY() +"," + realHero +
+                "," + name +
+                "," + coordinates.getX() +
+                ","+ coordinates.getY() +
+                "," + realHero +
                 "," + hasToothpick +
                 "," + impactSpeed +
                 "," + weaponType +

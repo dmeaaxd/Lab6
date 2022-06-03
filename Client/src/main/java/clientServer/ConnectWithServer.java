@@ -57,8 +57,10 @@ public class ConnectWithServer {
         }
         buf.clear();
         buf = ByteBuffer.allocate(8192);
-        host2 = datagramChannel.receive(buf);
-        //todo Проверка на недоступность сервера...
+        datagramChannel.receive(buf);
+
+        //todo если сервер недоступен, то улетает в бесконечный цикл (обработка)
+
         byte[] byteMessage = buf.array();
         DataServer obj;
         try {

@@ -1,5 +1,6 @@
 package collections;
 
+import ServerMain.ServerMain;
 import commands.WriteTheValues;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -10,13 +11,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class JavaIO {
     public static void writeToFile(String example) {
-        File file = new File("/Users/dmeaaxd/Documents/JavaProjects/Lab6ServerClient/file.txt");
+        File file = new File(ServerMain.path_to_file);
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
@@ -37,8 +40,14 @@ public class JavaIO {
 
     public static void CSVCreateObject() {
         Scanner scanner = new Scanner(System.in);
-        String relative = (new File("")).getAbsolutePath() + File.separator;
-        String child = "file.txt";
+        String pathCSV = ServerMain.path_to_file;
+        File file = new File(pathCSV);
+
+        File file2 = file.getAbsoluteFile();
+        String absPath = file2.getAbsolutePath();
+        String relative = file2.getParent();
+        String child = file.getName();
+
         new StringBuilder();
 
         while(true) {

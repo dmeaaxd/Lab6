@@ -5,9 +5,18 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Lab6ServerClient</groupId>
+    <parent>
+        <artifactId>Lab6ServerClient</artifactId>
+        <groupId>Lab6ServerClient</groupId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>Lab6ServerClient.Common</groupId>
     <artifactId>Common</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>

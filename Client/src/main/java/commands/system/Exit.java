@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Exit extends CommandsToCollection {
     public Exit() {
-        super("exit", CommandArgs.NO_ARGS, "завершить программу без сохранения");
+        super("exit", CommandArgs.NO_ARGS, "завершить программу");
     }
 
     public Result function(String ... args) {

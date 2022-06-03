@@ -5,18 +5,52 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Lab6ServerClient</groupId>
+    <parent>
+        <artifactId>Lab6ServerClient</artifactId>
+        <groupId>Lab6ServerClient</groupId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>Lab6ServerClient.Server</groupId>
     <artifactId>Server</artifactId>
     <version>1.0</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ServerMain.ServerMain</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <appendAssemblyId>false</appendAssemblyId>
 
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <finalName>server6</finalName>
+    </build>
     <dependencies>
         <dependency>
-            <groupId>Lab6ServerClient</groupId>
+            <groupId>Lab6ServerClient.Common</groupId>
             <artifactId>Common</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
-
 
         <dependency>
         <groupId>org.apache.commons</groupId>

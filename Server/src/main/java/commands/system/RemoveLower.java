@@ -20,7 +20,6 @@ public class RemoveLower extends CommandsToCollection {
 
             ArrayList<HumanBeing> clone = new ArrayList<>();
 
-  // todo Возможно getenitiesCollection (Чекнуть все команды)
 
             for (int i = 0; ArrayListCollection.entitiesCollection.size() > 0; i++) {
                 HumanBeing lol;
