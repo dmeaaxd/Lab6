@@ -2,7 +2,6 @@ package commands;
 
 import collection.IdCollection;
 import exceptions.IncorrectArgsException;
-import сoloringText.ColorClass;
 
 import java.util.Arrays;
 
