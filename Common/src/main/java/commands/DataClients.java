@@ -28,9 +28,9 @@ public class DataClients implements Serializable {
             serializedObj = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
         } catch (NullPointerException e) {
-            System.out.println(ColorClass.red + "Ошибка! NullPointerException" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Ошибка! NullPointerException");
         } catch (IOException e) {
-            System.out.println(ColorClass.red + "Не удалось перевести сообщение сервера в байты" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Не удалось перевести сообщение сервера в байты");
         }
         return serializedObj;
     }

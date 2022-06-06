@@ -16,9 +16,9 @@ public class Info extends CommandsToCollection {
     public ServerResult function(String ... args) {
         try {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(ColorClass.blue + "Тип коллекции - " + String.valueOf(ArrayListCollection.entitiesCollection.getClass()) + ColorClass.reset);
-            arrayList.add(ColorClass.blue + "Дата инициализации - " + String.valueOf(ArrayListCollection.getDataCreation()) + ColorClass.reset);
-            arrayList.add(ColorClass.blue + "Длинна коллекции - " + String.valueOf(ArrayListCollection.entitiesCollection.size()) + ColorClass.reset);
+            arrayList.add("Тип коллекции - " + String.valueOf(ArrayListCollection.entitiesCollection.getClass()));
+            arrayList.add("Дата инициализации - " + String.valueOf(ArrayListCollection.getDataCreation()));
+            arrayList.add("Длинна коллекции - " + String.valueOf(ArrayListCollection.entitiesCollection.size()));
             return new ServerResult(arrayList,true);
         } catch (Exception e) {
             return new ServerResult(false);

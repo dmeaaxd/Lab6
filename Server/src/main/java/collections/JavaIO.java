@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                //easter egg
 public class JavaIO {
     public static void writeToFile(String example) {
         File file = new File(ServerMain.path_to_file);
@@ -29,7 +29,7 @@ public class JavaIO {
                 fileOutputStream.close();
                 return;
             } catch (IOException e) {
-                System.out.println(ColorClass.red + "Проблемы с файлом. Укажите путь до другого файла" + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Проблемы с файлом. Укажите путь до другого файла");
                 if (!scanner.hasNext()) {
                     System.exit(0);
                 }
@@ -56,7 +56,6 @@ public class JavaIO {
                 CSVParser parser = CSVParser.parse(path, Charset.defaultCharset(), CSVFormat.RFC4180);
                 List<CSVRecord> parserlocal = parser.getRecords();
                 Iterator iterator = parserlocal.iterator();
-
                 while(iterator.hasNext()) {
                     CSVRecord record = (CSVRecord)iterator.next();
                     if (record.size() == 16) {
@@ -66,8 +65,8 @@ public class JavaIO {
 
                 return;
             } catch (IOException e) {
-                System.out.println(ColorClass.red + "Возникли проблемы с файлом (не существует или нет прав)" + ColorClass.reset);
-                System.out.print(ColorClass.yellow + "Укажите путь к файлу: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Возникли проблемы с файлом (не существует или нет прав)");
+                ColorClass.colorPrintln(ColorClass.YELLOW, "Укажите путь к файлу: ");
                 if (!scanner.hasNext()) {
                     System.exit(0);
                 }

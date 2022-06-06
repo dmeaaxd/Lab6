@@ -2,7 +2,6 @@ package commands;
 
 import collection.IdCollection;
 import exceptions.IncorrectArgsException;
-import сoloringText.ColorClass;
 
 import java.util.Arrays;
 
@@ -11,13 +10,13 @@ public class ArgsValidator {
         switch (typeOfArgs) {
             case NO_ARGS:
                 if (!(args.length == 1 && args[0].isEmpty())) {
-                    throw new IncorrectArgsException(ColorClass.red + "Аргумент должен стоять на 0 позиции" + ColorClass.reset);
+                    throw new IncorrectArgsException("Аргумент должен стоять на 0 позиции");
                 }
                 break;
             case ID_ARGS:
                 System.out.println(args.length);
                 if (args.length != 1) {
-                    throw new IncorrectArgsException(ColorClass.red + "Аргумент должен стоять на 1 позиции" + ColorClass.reset);
+                    throw new IncorrectArgsException("Аргумент должен стоять на 1 позиции");
                 } else {
                     try {
                         Integer.valueOf(args[0]);
@@ -46,24 +45,24 @@ public class ArgsValidator {
                 try {
                     Integer.valueOf(args[0]);
                 } catch (NumberFormatException e) {
-                    System.out.print(ColorClass.yellow + "Укажите id: " + ColorClass.reset);
+                    System.out.print("Укажите id: ");
                     args[0] = CheckTheCorrect.checkTheCorrect(Integer.valueOf(0)).toString();
                 }
                 args = CheckTheCorrect.fillingArgs(Arrays.copyOfRange(args, 1, args.length));
                 break;
             case CONNECT_ARGS:
                 if (args.length != 2) {
-                    throw new IncorrectArgsException(ColorClass.red + "Аргумент должен стоять на 2 позиции" + ColorClass.reset);
+                    throw new IncorrectArgsException("Аргумент должен стоять на 2 позиции");
                 }
                 try {
                     Integer.valueOf(args[1]);
                 } catch (NumberFormatException e) {
-                    throw new IncorrectArgsException(ColorClass.red + "Второй аргумент должен быть типа Integer" + ColorClass.reset);
+                    throw new IncorrectArgsException("Второй аргумент должен быть типа Integer");
                 }
                 break;
             case STRING:
                 if (!(args.length == 1 && !args[0].isEmpty())) {
-                    throw new IncorrectArgsException(ColorClass.red + "Требуется путь" + ColorClass.reset);
+                    throw new IncorrectArgsException("Требуется путь");
                 }
                 break;
         }

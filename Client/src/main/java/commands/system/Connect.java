@@ -33,10 +33,10 @@ public class Connect extends CommandsToCollection {
                 CommandCollection.getServerCommands().put(commandData.getName(), commandData);
             }
         } catch (IOException e) {
-            System.out.println(ColorClass.red + "Проблемы с сервером" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Проблемы с сервером");
             return new Result(false);
         }
-        arrayList.add(ColorClass.green + "Команда выполнена" + ColorClass.reset);
+        arrayList.add("Команда выполнена");
         return new Result(arrayList, true);
     }
 }

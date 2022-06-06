@@ -27,7 +27,7 @@ public class Save extends CommandsToCollection {
                 JavaIO.writeToFile(obj.csvToString() + "\n");
             }
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(ColorClass.green + "Файл сохранен" + ColorClass.reset);
+            arrayList.add("Файл сохранен");
             return new ServerResult(arrayList,true);
         }
         catch (Exception e) {

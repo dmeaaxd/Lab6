@@ -1,6 +1,5 @@
-package collections;
-
 import clientServer.ConnectWithServer;
+import collections.CommandCollection;
 import commands.ArgsValidator;
 import commands.DataClients;
 import commands.DataServer;
@@ -8,30 +7,36 @@ import commands.Result;
 import exceptions.IncorrectArgsException;
 import сoloringText.ColorClass;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.regex.PatternSyntaxException;
 
-public class JavaIO {
-    public static boolean readScript(String filepath) {
-        Set keys = CommandCollection.getCommandColl().keySet();
+public class Client {
+    public void start(){
+        CommandCollection.commandManager();
+        Scanner scanner = new Scanner(System.in);
+        ColorClass.colorPrintln(ColorClass.BLUE, "Введите help для получении справки по командам");
 
-        Scanner scanner;
-        try {
-            scanner = new Scanner(new File(filepath));
-        } catch (FileNotFoundException e) {
-            ColorClass.colorPrintln(ColorClass.RED, "Проблема с файлом. Попробуйте снова");
-            return false;
-        }
-
-        while (scanner.hasNext()) {
+        while (true) {
             String command;
             String[] arguments;
             String strArgs;
-            String input = scanner.nextLine().trim();
+            if (!scanner.hasNext()) {
+                ColorClass.colorPrintln(ColorClass.RED, "Ошибочный ввод. Попробуйте снова");
+                System.exit(0);
+            }
+
+            String input;
+            while (true) {
+                try {
+                    input = scanner.nextLine();
+                    break;
+                } catch (IllegalStateException e) {
+                    ColorClass.colorPrintln(ColorClass.RED, "Ошибочный ввод. Попробуйте снова");
+                }
+            }
+            input = input.trim();
+            if(input.isEmpty())continue;
             command = input.split(" ")[0];
             Result result;
             try {
@@ -40,32 +45,35 @@ public class JavaIO {
                 strArgs = "";
             }
             arguments = strArgs.split(",");
-            ColorClass.colorPrintln(ColorClass.BLUE, "Команда: " + command);
             if (CommandCollection.getClientCommands().containsKey(command)) {
 
-                result = (CommandCollection.getCommandColl().get(command)).function(arguments);
+
+                try {
+                    result = (CommandCollection.getCommandColl().get(command)).function(arguments);
+                } catch (NullPointerException e) {
+                    continue;
+                }
 
                 for (int i = 0; i < result.getMessage().size(); i++) {
                     System.out.println(result.getMessage().get(i));
                 }
 
             } else if (!CommandCollection.getServerCommands().containsKey(command)) {
-                ColorClass.colorPrintln(ColorClass.RED, "Такой команды не существует");
+                ColorClass.colorPrintln(ColorClass.RED, "Такой команды не существует. Попробуйте снова");
             } else {
                 try {
                     arguments = ArgsValidator.argsValidator(CommandCollection.getServerCommands().get(command).getCommandArgs(), arguments);
+
                     DataServer dataServer = ConnectWithServer.getInstance().connectWithServer(new DataClients(command, arguments));
                     for (String s : dataServer.getMessage()) {
                         System.out.println(s);
                     }
-                } catch(IncorrectArgsException e){
+                } catch (IncorrectArgsException e) {
                     System.out.println(e.getMessage());
-
-                } catch(IOException e){
+                } catch (IOException e) {
                     ColorClass.colorPrintln(ColorClass.RED, "Сервер недоступен");
                 }
             }
         }
-        return true;
     }
 }

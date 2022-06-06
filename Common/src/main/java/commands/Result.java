@@ -1,7 +1,6 @@
 package commands;
 
 import lombok.Getter;
-import сoloringText.ColorClass;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,7 +24,7 @@ public class Result {
                 message = new ArrayList<>();
             } else {
                 message = new ArrayList<>();
-                message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
+                message.add("Ошибка в команде");
             }
         }
         this.command = command;
@@ -38,7 +37,7 @@ public class Result {
             message = new ArrayList<>();
         } else {
             message = new ArrayList<>();
-            message.add(ColorClass.red + "Ошибка в команде" + ColorClass.reset);
+            message.add("Ошибка в команде");
         }
     }
 }

@@ -49,10 +49,11 @@ public class ConnectWithServer {
         try {
             datagramChannel.send(buf, host2);
         }catch (SocketTimeoutException e){
-            System.out.println(ColorClass.red + "Сервер недоступен" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Сервер недоступен");
+            return null;
         }
         catch (IOException e) {
-            System.out.println(ColorClass.red + "Проблема с сервером" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Проблема с сервером");
             return null;
         }
         buf.clear();

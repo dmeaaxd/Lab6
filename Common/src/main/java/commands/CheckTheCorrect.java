@@ -25,7 +25,7 @@ public class CheckTheCorrect {
                 type = Boolean.parseBoolean(local);
                 return type;
             } catch (Exception e) {
-                System.out.print(ColorClass.red + "Переменная должна быть типа Boolean. Повторите ввод: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Переменная должна быть типа Boolean. Повторите ввод");
             }
         }
     }
@@ -40,7 +40,7 @@ public class CheckTheCorrect {
 
                 type = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.print("Incorrect data entered, please re-enter: ");
+                ColorClass.colorPrintln(ColorClass.RED, "Ошибка ввода. Повторите ввод");
                 continue;
             }
 
@@ -60,7 +60,7 @@ public class CheckTheCorrect {
                 type = Long.valueOf(scanner.next());
                 return type;
             } catch (NumberFormatException e) {
-                System.out.print(ColorClass.red + "Переменная должна быть типа Long. Повторите ввод: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Переменная должна быть типа Long. Повторите ввод");
             }
         }
     }
@@ -81,7 +81,7 @@ public class CheckTheCorrect {
 
                 throw new IllegalArgumentException();
             } catch (IllegalArgumentException e) {
-                System.out.print(ColorClass.red + "Переменная должна быть типа String. Повторите ввод: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Переменная должна быть типа String. Повторите ввод");
             }
         }
     }
@@ -98,7 +98,7 @@ public class CheckTheCorrect {
                 type = Double.valueOf(scanner.next());
                 return type;
             } catch (NumberFormatException e) {
-                System.out.print(ColorClass.red + "Переменная должна быть типа Double. Повторите ввод: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Переменная должна быть типа Double. Повторите ввод");
             }
         }
     }
@@ -108,7 +108,7 @@ public class CheckTheCorrect {
             Scanner scanner = new Scanner(System.in);
 
             try {
-                System.out.println(ColorClass.yellow + "Введите значение Mood из представленных ниже" + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.YELLOW, "Введите значение Mood из представленных ниже");
                 Mood[] obj = Mood.values();
 
                 for (Mood localObj : obj) {
@@ -122,7 +122,7 @@ public class CheckTheCorrect {
                 type = Mood.valueOf(scanner.nextLine());
                 return type;
             } catch (IllegalArgumentException e) {
-                System.out.print(ColorClass.red + "Переменная должна быть типа Mood. Повторите ввод: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Переменная должна быть типа Mood. Повторите ввод");
             }
         }
     }
@@ -132,7 +132,7 @@ public class CheckTheCorrect {
             Scanner scanner = new Scanner(System.in);
 
             try {
-                System.out.println(ColorClass.yellow + "Введите значение WeaponType из представленных ниже" + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.YELLOW, "Введите значение WeaponType из представленных ниже");
                 WeaponType[] obj = WeaponType.values();
 
                 for (WeaponType localObj : obj) {
@@ -147,7 +147,7 @@ public class CheckTheCorrect {
                 type = WeaponType.valueOf(scanner.nextLine());
                 return type;
             } catch (IllegalArgumentException e) {
-                System.out.print(ColorClass.red + "Переменная должна быть типа WeaponType. Повторите ввод: " + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Переменная должна быть типа WeaponType. Повторите ввод");
             }
         }
     }
@@ -160,21 +160,21 @@ public class CheckTheCorrect {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
-            System.out.print(ColorClass.yellow + "Укажите имя: " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите имя: ");
             args[0] = CheckTheCorrect.checkTheCorrect("");
         }
 
         try {
             Integer.valueOf(args[1]);
         } catch (NumberFormatException e) {
-            System.out.print(ColorClass.yellow + "Укажите координату X (Integer): " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите координату X (Integer): ");
             args[1] = CheckTheCorrect.checkTheCorrect(Integer.valueOf(0)).toString();
         }
 
         try {
             Double.valueOf(args[2]);
         } catch (NumberFormatException e) {
-            System.out.print(ColorClass.yellow + "Укажите координату Y (Double): " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите координату Y (Double): ");
             args[2] = CheckTheCorrect.checkTheCorrect(Double.valueOf(0)).toString();
         }
 
@@ -184,7 +184,7 @@ public class CheckTheCorrect {
             }
             Boolean.valueOf(args[3]);
         } catch (NumberFormatException e) {
-            System.out.print(ColorClass.yellow + "Укажите realHero (Boolean): " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите realHero (Boolean): ");
             args[3] = CheckTheCorrect.checkTheCorrect(Boolean.FALSE).toString();
         }
 
@@ -194,14 +194,14 @@ public class CheckTheCorrect {
             }
             Boolean.valueOf(args[4]);
         } catch (NumberFormatException e) {
-            System.out.print(ColorClass.yellow + "Укажите hasToothPick (Boolean): " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите hasToothPick (Boolean): ");
             args[4] = CheckTheCorrect.checkTheCorrect(Boolean.FALSE).toString();
         }
 
         try {
             Long.valueOf(args[5]);
         } catch (NumberFormatException e) {
-            System.out.print(ColorClass.yellow + "Укажите impactSpeed (Long): " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите impactSpeed (Long): ");
             args[5] = CheckTheCorrect.checkTheCorrect(Long.valueOf(0)).toString();
         }
 
@@ -225,7 +225,7 @@ public class CheckTheCorrect {
             }
             args[8] = Boolean.valueOf(args[8]).toString();
         } catch (NumberFormatException e) {
-            System.out.print(ColorClass.yellow + "Укажите CarIsCool (Boolean): " + ColorClass.reset);
+            ColorClass.colorPrint(ColorClass.YELLOW, "Укажите CarIsCool (Boolean): ");
             args[8]=CheckTheCorrect.checkTheCorrect(Boolean.FALSE).toString();
         }
         return args;
