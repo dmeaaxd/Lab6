@@ -19,7 +19,7 @@ public class Exit extends CommandsToCollection {
             DataServer dataServer = ConnectWithServer.getInstance().connectWithServer(dataClients);
             System.out.println(dataServer.getMessage());
         } catch (IOException e) {
-            System.out.println(ColorClass.red + "Проблемы с сервером. Сохранение не удалось" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Проблемы с сервером. Сохранение не удалось");
         }
         System.exit(0);
         return null;

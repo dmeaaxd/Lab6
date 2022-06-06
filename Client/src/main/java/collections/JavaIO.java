@@ -23,7 +23,7 @@ public class JavaIO {
         try {
             scanner = new Scanner(new File(filepath));
         } catch (FileNotFoundException e) {
-            System.out.println(ColorClass.red + "Проблема с файлом. Попробуйте снова" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Проблема с файлом. Попробуйте снова");
             return false;
         }
 
@@ -40,7 +40,7 @@ public class JavaIO {
                 strArgs = "";
             }
             arguments = strArgs.split(",");
-            System.out.println(ColorClass.blue + "Команда : " + ColorClass.reset + command);
+            ColorClass.colorPrintln(ColorClass.BLUE, "Команда: " + command);
             if (CommandCollection.getClientCommands().containsKey(command)) {
 
                 result = (CommandCollection.getCommandColl().get(command)).function(arguments);
@@ -50,7 +50,7 @@ public class JavaIO {
                 }
 
             } else if (!CommandCollection.getServerCommands().containsKey(command)) {
-                System.out.println(ColorClass.red + "Такой команды не существует" + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Такой команды не существует");
             } else {
                 try {
                     arguments = ArgsValidator.argsValidator(CommandCollection.getServerCommands().get(command).getCommandArgs(), arguments);
@@ -62,7 +62,7 @@ public class JavaIO {
                     System.out.println(e.getMessage());
 
                 } catch(IOException e){
-                    System.out.println(ColorClass.red + "Сервер недоступен" + ColorClass.reset);
+                    ColorClass.colorPrintln(ColorClass.RED, "Сервер недоступен");
                 }
             }
         }

@@ -18,9 +18,9 @@ public class UpdateId extends CommandsToCollection {
 
     public ServerResult function(String... arguments) {
         if (ArrayListCollection.entitiesCollection.isEmpty()) {
-            System.out.println(ColorClass.red + "Коллекция пуста" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Коллекция пуста");
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(ColorClass.red + "Коллекция пуста" + ColorClass.reset);
+            arrayList.add("Коллекция пуста");
             return new ServerResult(arrayList, false);
         }
 
@@ -28,7 +28,7 @@ public class UpdateId extends CommandsToCollection {
         Long id;
         id = Long.parseLong(arguments[0]);
         if (!IdCollection.idCollection.contains(id)) {
-            System.out.println(ColorClass.red + "Данные некорректны (элемента с таким id нет). Попробуйте снова" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Данные некорректны (элемента с таким id нет). Попробуйте снова");
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add("Данные некорректны (элемента с таким id нет). Попробуйте снова");
             return new ServerResult(arrayList, false);

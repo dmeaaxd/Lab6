@@ -15,18 +15,18 @@ public class Help extends CommandsToCollection {
     }
 
     public Result function(String... args) {
-        System.out.println(ColorClass.blue + "|.............Client's commands.............|" + ColorClass.reset);
+        ColorClass.colorPrintln(ColorClass.BLUE, "|.............Client's commands.............|");
         for (Map.Entry<String, String> pair : CommandCollection.getClientCommands().entrySet()){
             String key = (String) pair.getKey();
             String value = (String) pair.getValue();
-            System.out.println(ColorClass.green + key + ColorClass.reset + " --> " + value);
+            ColorClass.colorPrintln(ColorClass.GREEN, key + " --> " + value);
         }
         if (!CommandCollection.getServerCommands().isEmpty()) {
-            System.out.println(ColorClass.blue + "|.............Server's commands.............|" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.BLUE, "|.............Server's commands.............|");
             for (Map.Entry<String, CommandData> pair : CommandCollection.getServerCommands().entrySet()){
                 String key = pair.getKey();
                 CommandData value = pair.getValue();
-                System.out.println(ColorClass.green + key + ColorClass.reset + " --> " + value.getDescription());
+                ColorClass.colorPrintln(ColorClass.GREEN, key + " --> " + value.getDescription());
             }
         }
         return new Result(true);

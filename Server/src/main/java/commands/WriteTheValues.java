@@ -31,7 +31,7 @@ public class WriteTheValues {
             return true;
         }
         catch (NumberFormatException|ArrayIndexOutOfBoundsException e){
-            System.out.println(ColorClass.red + "Неправильный номер или тип аргументов" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Неправильный номер или тип аргументов");
             return false;
         }
     }

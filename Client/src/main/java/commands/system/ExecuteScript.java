@@ -17,7 +17,7 @@ public class ExecuteScript extends CommandsToCollection {
 
     public Result function(String ... arguments) {
         if(ConnectWithServer.getInstance().getIPAddress()==null){
-            System.out.println(ColorClass.red + "Ты должен написать" + ColorClass.green + " \"connect\" " + ColorClass.red + "до того как использовать эту команду" + ColorClass.reset);
+            ColorClass.colorPrintln(ColorClass.RED, "Ты должен написать connect до того как использовать эту команду");
             return new Result(false);
         }
 
@@ -26,7 +26,7 @@ public class ExecuteScript extends CommandsToCollection {
         try {
             if (ExecuteFileCollection.getExecuteFileCollection().contains(filepath)) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                arrayList.add(ColorClass.red + "Этот скрипт уже выполнялся" + ColorClass.reset);
+                arrayList.add("Этот скрипт уже выполнялся");
                 return new Result(arrayList,false);
             } else {
                 ExecuteFileCollection.getExecuteFileCollection().add(filepath);
@@ -34,7 +34,7 @@ public class ExecuteScript extends CommandsToCollection {
                     return new Result(true);
                 } else {
                     ArrayList arrayList = new ArrayList<>();
-                    arrayList.add(ColorClass.red + "Во время исполнения скрипта произошла ошибка" + ColorClass.reset);
+                    arrayList.add("Во время исполнения скрипта произошла ошибка");
                     return new Result(arrayList,false);
                 }
             }

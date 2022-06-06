@@ -15,14 +15,14 @@ public class ClientMain {
     public static void main(String[] args) {
         CommandCollection.commandManager();
         Scanner scanner = new Scanner(System.in);
-        System.out.println(ColorClass.blue + "Введите help для получении справки по командам" + ColorClass.reset);
+        ColorClass.colorPrintln(ColorClass.BLUE, "Введите help для получении справки по командам");
 
         while (true) {
             String command;
             String[] arguments;
             String strArgs;
             if (!scanner.hasNext()) {
-                System.out.println(ColorClass.red + "Ошибочный ввод. Попробуйте снова" + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Ошибочный ввод. Попробуйте снова");
                 System.exit(0);
             }
 
@@ -32,7 +32,7 @@ public class ClientMain {
                     input = scanner.nextLine();
                     break;
                 } catch (IllegalStateException e) {
-                    System.out.println(ColorClass.red + "Ошибочный ввод. Попробуйте снова" + ColorClass.reset);
+                    ColorClass.colorPrintln(ColorClass.RED, "Ошибочный ввод. Попробуйте снова");
                 }
             }
             input = input.trim();
@@ -59,7 +59,7 @@ public class ClientMain {
                 }
 
             } else if (!CommandCollection.getServerCommands().containsKey(command)) {
-                System.out.println(ColorClass.red + "Такой команды не существует. Попробуйте снова" + ColorClass.reset);
+                ColorClass.colorPrintln(ColorClass.RED, "Такой команды не существует. Попробуйте снова");
             } else {
                 try {
                     arguments = ArgsValidator.argsValidator(CommandCollection.getServerCommands().get(command).getCommandArgs(), arguments);
@@ -71,7 +71,7 @@ public class ClientMain {
                 } catch (IncorrectArgsException e) {
                     System.out.println(e.getMessage());
                 } catch (IOException e) {
-                    System.out.println(ColorClass.red + "Сервер недоступен" + ColorClass.reset);
+                    ColorClass.colorPrintln(ColorClass.RED, "Сервер недоступен");
                 }
             }
         }

@@ -2,6 +2,7 @@ package commands;
 
 import collections.CommandCollection;
 import exceptions.IncorrectArgsException;
+import сoloringText.ColorClass;
 
 public abstract class CommandsToCollection extends AbstractCommand{
     @Override
@@ -22,7 +23,7 @@ public abstract class CommandsToCollection extends AbstractCommand{
         try {
             return ArgsValidator.argsValidator(getData().getCommandArgs(),args);
         } catch (IncorrectArgsException e) {
-            System.out.println(e.getMessage());
+            ColorClass.colorPrintln(ColorClass.RED, e.getMessage());
             throw new IncorrectArgsException();
         }
     }

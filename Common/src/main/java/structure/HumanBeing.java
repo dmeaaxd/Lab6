@@ -48,7 +48,7 @@ public class HumanBeing implements java.lang.Comparable<HumanBeing> {
 
     @Override
     public String toString() {
-        return ColorClass.blue + "HumanBeing{" +
+        return "HumanBeing{" +
                 "id=" + id +
                 ", name=" + name +
                 ", coordinates=" + coordinates +
@@ -59,7 +59,7 @@ public class HumanBeing implements java.lang.Comparable<HumanBeing> {
                 ", weaponType=" + weaponType +
                 ", mood=" + mood +
                 ", car=" + car +
-                "}" + ColorClass.reset;
+                "}";
     }
 
     public String csvToString() {
